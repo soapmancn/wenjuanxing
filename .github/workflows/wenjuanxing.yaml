@@ -1,0 +1,29 @@
+name: 'wenjuanxing job'
+
+on:
+  workflow_dispatch:
+    inputs:
+      actions:
+        description: "action: start"
+        default: "start"
+  schedule:
+    - cron: '0 18 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+      - name: 'Install requirements'
+        run: pip install -r requirements.txt
+      - name: 'Run wenjuanxing'
+        env:
+          PROXY_SERVER: ${{ secrets.PROXY_SERVER }}
+          PROXY_USER: ${{ secrets.PROXY_USER }}
+          PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
+          QUESTION_URL: ${{ secrets.QUESTION_URL }}
+          TOTAL_QUESTION: ${{ secrets.TOTAL_QUESTION }}
+        run: python main.py

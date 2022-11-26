@@ -5,6 +5,6 @@ WORKDIR ./wenjuanxing
 ADD . .
 
 RUN python -m pip install --upgrade pip
-RUN sudo pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 CMD ["python", "./main.py"]

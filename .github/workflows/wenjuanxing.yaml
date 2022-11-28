@@ -26,4 +26,4 @@ jobs:
           PROXY_PASSWORD: ${{ secrets.PROXY_PASSWORD }}
           QUESTION_URL: ${{ secrets.QUESTION_URL }}
           TOTAL_QUESTION: ${{ secrets.TOTAL_QUESTION }}
-        run: python3 main.py
+        run: python main.py

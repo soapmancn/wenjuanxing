@@ -11,12 +11,12 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-#       - uses: actions/setup-python@v4
-#         with:
-#           python-version: '3.8'
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
       - name: 'Install requirements'
         run: pip install -r requirements.txt
       - name: 'Run wenjuanxing'
